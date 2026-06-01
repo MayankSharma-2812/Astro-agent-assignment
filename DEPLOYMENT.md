@@ -52,29 +52,70 @@ Once the deployment completes, Render will provide you with a live URL (e.g., `h
 
 ---
 
-## 3. Deploy the Frontend on Vercel ⚡
+## 3. Deploy the Frontend (Options: Vercel, Render Static Site, or Netlify)
 
-Vercel is used to host your static Vite React frontend.
+Choose **one** of the following options to host your static React frontend:
+
+### Option A: Deploy on Vercel ⚡
 
 1. **Sign In**: Log into [Vercel](https://vercel.com/).
 2. **Create Project**: Click **Add New** -> **Project**.
-3. **Import Repository**: Select your `astroagent` repository.
+3. **Import Repository**: Select your `astroagent` (or `astro`) repository.
 4. **Configure Settings**:
    - **Framework Preset**: `Vite`
    - **Root Directory**: Click *Edit* and select **`frontend`** (⚠️ *Very Important: This points Vercel to the nested frontend folder!*).
-   - **Build and Output Settings**: Leave defaults (Build command: `vite build`, Output directory: `dist`).
+   - **Build and Output Settings**: Leave defaults (Build command: `vite build` or `npm run build`, Output directory: `dist`).
 5. **Set Environment Variables**:
    Expand the **Environment Variables** section and add:
    - **Key**: `VITE_API_URL`
-   - **Value**: `https://YOUR_RENDER_BACKEND_URL` (paste the URL you copied from Render, *without* a trailing slash, e.g., `https://astroagent-backend.onrender.com`).
+   - **Value**: `https://YOUR_RENDER_BACKEND_URL` (paste the URL you copied from Render, without a trailing slash, e.g., `https://astroagent-backend.onrender.com`).
 6. **Deploy**: Click **Deploy**.
 
-Vercel will build your React application and provide you with a live production URL (e.g., `https://astroagent-frontend.vercel.app`).
+---
+
+### Option B: Deploy on Render (Static Site) 🌌 (Recommended Alternative)
+
+Since your backend is already on Render, you can keep both services under one account.
+
+1. **Sign In**: Log into [Render](https://render.com/).
+2. **Create Static Site**: Click **New +** and select **Static Site**.
+3. **Connect Repository**: Link your GitHub account and select your repository.
+4. **Configure Settings**:
+   - **Name**: `astroagent-frontend`
+   - **Branch**: `main`
+   - **Root Directory**: `frontend` (⚠️ *Very Important: This points Render to the nested frontend folder!*)
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+5. **Set Environment Variables**:
+   Navigate to the **Environment** tab and add:
+   - **Key**: `VITE_API_URL`
+   - **Value**: `https://YOUR_RENDER_BACKEND_URL` (your Render backend API URL).
+6. **Deploy**: Click **Create Static Site**.
+
+---
+
+### Option C: Deploy on Netlify 🕸️
+
+Netlify is another excellent, free, zero-config hosting provider for Vite React projects.
+
+1. **Sign In**: Log into [Netlify](https://www.netlify.com/).
+2. **Import Project**: Click **Add new site** -> **Import an existing project**.
+3. **Connect GitHub**: Select your repository.
+4. **Configure Settings**:
+   - **Branch to deploy**: `main`
+   - **Base directory**: `frontend` (⚠️ *Very Important: This points Netlify to the nested frontend folder!*)
+   - **Build command**: `npm run build`
+   - **Publish directory**: `dist` (Netlify resolves this relative to the base directory).
+5. **Set Environment Variables**:
+   Click **Add environment variables** (or go to Site configuration -> Environment variables after creation) and add:
+   - **Key**: `VITE_API_URL`
+   - **Value**: `https://YOUR_RENDER_BACKEND_URL`
+6. **Deploy**: Click **Deploy site**.
 
 ---
 
 ## 4. Test the Deployment
 
-1. Open your Vercel URL in a browser.
+1. Open your live frontend URL (from Vercel, Render, or Netlify) in a browser.
 2. Fill out the **Birth Form** and click **Begin Reading**.
-3. The app will communicate securely with your Render server using the Vercel `VITE_API_URL` redirect and stream Ara's astrological insights in real-time.
+3. The app will communicate securely with your Render server using the configured `VITE_API_URL` and stream Ara's astrological insights in real-time.

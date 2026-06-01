@@ -1,0 +1,6 @@
+{"run_at":"2026-05-31T12:55:34.652Z","pass_rate":"0/10","avg_latency_ms":345,"p95_latency_ms":675}
+{"run_at":"2026-05-31T12:58:31.757Z","pass_rate":"3/10","avg_latency_ms":2743,"p95_latency_ms":5059}
+{"run_at":"2026-05-31T12:59:48.130Z","pass_rate":"5/10","avg_latency_ms":3578,"p95_latency_ms":5772}
+{"run_at":"2026-05-31T13:07:37.952Z","pass_rate":"10/25","avg_latency_ms":4071,"p95_latency_ms":6282,"total_tokens":5083,"estimated_cost_usd":0.002517,"judge_agreement_rate":"33%"}
+{"run_at":"2026-06-01T13:07:17.892Z","pass_rate":"18/25","avg_latency_ms":5400,"p95_latency_ms":9141,"total_tokens":5890,"estimated_cost_usd":0.003001,"judge_agreement_rate":"33%"}
+{"run_at":"2026-06-01T13:12:32.995Z","pass_rate":"18/25","avg_latency_ms":4945,"p95_latency_ms":8318,"total_tokens":5871,"estimated_cost_usd":0.00299,"judge_agreement_rate":"33%"}

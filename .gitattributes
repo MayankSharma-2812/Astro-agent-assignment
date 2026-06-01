@@ -1,0 +1,16 @@
+# Handle line endings automatically for files detected as text
+# and leave all other files alone.
+* text=auto
+
+# Denote all files without extension as text and normalize line endings
+LICENSE text
+README.md text
+
+# Keep scripts and config files with LF line endings
+*.sh text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.md text eol=lf

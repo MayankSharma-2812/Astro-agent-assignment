@@ -21,7 +21,8 @@ export function useChat() {
     setMessages((prev) => [...prev, { role: "assistant", content: "", streaming: true }]);
 
     try {
-      const res = await fetch("/chat", {
+      const apiUrl = import.meta.env.VITE_API_URL || "";
+      const res = await fetch(`${apiUrl}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, sessionId, birthDetails }),

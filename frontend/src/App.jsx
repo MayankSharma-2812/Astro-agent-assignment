@@ -12,7 +12,8 @@ export default function App() {
   // On load, check if session has existing history
   useEffect(() => {
     const sessionId = getSessionId();
-    fetch(`/history/${sessionId}`)
+    const apiUrl = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiUrl}/history/${sessionId}`)
       .then((r) => r.json())
       .then((data) => {
         if (data.chartData) {
